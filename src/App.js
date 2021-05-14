@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+
+import DishForm from './components/form/form.component';
+import sandwich from './assets/sandwich.png';
+import soup from './assets/soup.png';
+import pizza from './assets/pizza.png';
+import './App.scss';
+
+const submit = values => {
+  console.log(values)
+}
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <DishForm onSubmit={submit}/>
+
+      <img className='background-image sandwich' src={sandwich} alt='sandwich'/>
+      <img className='background-image soup' src={soup} alt='soup'/>
+      <img className='background-image pizza' src={pizza} alt='pizza'/>
     </div>
   );
 }

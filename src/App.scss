@@ -1,0 +1,25 @@
+.App {
+  height: 100vh;
+
+  .background-image {
+    position: absolute;
+    padding: 20px;
+
+    &.sandwich {
+      height: 250px;
+    }
+
+    &.soup {
+      bottom: 0;
+      height: 450px;
+    }
+
+    &.pizza {
+      right: 0;
+      top: 20%;
+      height: 500px;
+    }
+  }
+
+
+}
