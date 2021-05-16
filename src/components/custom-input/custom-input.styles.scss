@@ -1,7 +1,10 @@
-label {
-    display: block;
-}
+.input-container {
+    position: relative;
+    margin: auto;
+    width: 100%;
 
-input {
-    border: 1px soli pink;
+    .label {
+        display: block;
+    }
+    
 }

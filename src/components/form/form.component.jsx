@@ -1,88 +1,102 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { reduxForm } from 'redux-form';
+import { connect } from 'react-redux';
+// import { apiRequest } from '../../redux/form/form.action';
 
 import CustomInput from '../custom-input/custom-input.component';
-import DurationInput from '../duration-input/duration-input.component';
 import CustomButton from '../custom-button/custom-buton.component';
 
 import './form.styles.scss';
 
 
 let DishForm = props => {
-    const [type, setType] = useState('')
-    const { handleSubmit } = props;
+  // console.log(props)
+
+    const { handleSubmit, dishType, reset} = props;
+
+    const options = ['pizza', 'soup', 'sandwich'];
 
     return <form onSubmit={handleSubmit}>
-        <CustomInput
+                    <CustomInput
                     className='dish-name'
                     label='Dish Name' 
-                    name='dishName'
+                    name='name'
                     component='input'
                     type='text'
                     placeholder='Dish Name'
                     />
 
-                    <DurationInput 
-                    className='time'
-                    name=' preparationTime'/>
+                    <CustomInput
+                    className='preparation-time'
+                    label='Preparation time' 
+                    name='preparation_time'
+                    component='input'
+                    type='time'
+                    step="1"
+                    />
 
                     <CustomInput
                     className='type'
                     label='Dish type' 
-                    name='dishType'
+                    name='type'
                     component='select'
-                  
+                    options = {options}
                     />
 
-                    {type === 'Pizza' ? <CustomInput
+                    {dishType === 'pizza' ? <CustomInput
                     className='number'
                     label='Number of slices' 
-                    name='numberOfSlices'
+                    name='no_of_slices'
                     component='input'
                     type='number'
                     min='1'
                     placeholder='0'
                     /> : null}
 
-                    {type === 'Pizza' ? <CustomInput
+                    {dishType === 'pizza' ? <CustomInput
                     className='float'
                     label='Diameter' 
                     name='diameter'
                     component='input'
-                    type='text'
+                    type='number'
+                    min='15'
                     placeholder='cm'
                     /> : null} 
 
-                    {type === 'Soup' ? <CustomInput
+                    {dishType === 'soup' ? <CustomInput
                     className='range'
                     label='Spiciness' 
-                    name='spiciness'
+                    name='spiciness_scale'
                     component='input'
                     type='range'
                     min='1'
                     max='10'
                     /> : null}
 
-                    {type === 'Sandwich' ? <CustomInput
+                    {dishType === 'sandwich' ? <CustomInput
                     className='number'
                     label='Slices of bread' 
-                    name='slicesOfBread'
+                    name='slices_of_bread'
                     component='input'
                     type='number'
                     min='2'
                     placeholder='2'
                     /> : null}
 
-                    <CustomButton 
-                    type="submit"
-                    
-                    child='Make an order!'/>
+                    <CustomButton
+                    reset = {reset}
+                    type="submit"           
+                    child='Make an order!'
+                    />
     </form>
   }
 
-  DishForm = reduxForm({
-    form: 'dish order'
-  })(DishForm)
+  const mapStateToProps = (state) => ({
+    dishType: state.stateFromReducer.typeOfDish
+  }); 
 
+  // const mapDispatchToProps = dispatch => ({
+  //   apiRequest: () => dispatch(apiRequest())
+  // })
 
-export default DishForm;
+  export default connect(mapStateToProps)(reduxForm({ form: 'order' })(DishForm))
