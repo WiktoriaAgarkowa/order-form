@@ -8,6 +8,7 @@
         color: white;
         text-align: center;
         margin: 100px 0 40px 0;
+        font-family: 'Inconsolata', monospace;
     }
 
     span {
@@ -15,5 +16,13 @@
         display: block;
         text-align: center;
         color: white;
+        font-family: 'Inconsolata', monospace;
     }
 }
+
+@media only screen and (max-width: 1300px) {
+    .output-container {
+      flex-basis: 100%;
+      width: 100%;
+    }
+  }

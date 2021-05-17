@@ -12,10 +12,10 @@ let Output = ({name, type, time, slices, diameter, spice, slices_bread}) => {
             <span>Dish name: {name}</span>
             <span>Type of dish: {type}</span>
             <span>Preparation time: {time}</span>
-            {slices ? <span>Number of slices: {slices}</span> : null}
-            {diameter ? <span>Diameter: {diameter}</span> : null}
-            {spice ? <span>Spice: {spice}</span> : null}
-            {slices_bread ? <span>Slices of bread: {slices_bread}</span> : null}
+            {type === 'pizza' ? <span>Number of slices: {slices}</span> : null}
+            {type === 'pizza' ? <span>Diameter: {diameter}</span> : null}
+            {type === 'soup' ? <span>Spice: {spice}</span> : null}
+            {type === 'sandwich' ? <span>Slices of bread: {slices_bread}</span> : null}
                     
         </div>
     )
@@ -27,7 +27,7 @@ const mapStateToProps = state => ({
     time: formValueSelector('order')(state, 'preparation_time'),
     slices: formValueSelector('order')(state, 'no_of_slices'),
     diameter: formValueSelector('order')(state, 'diameter'),
-    spice: formValueSelector('order')(state, 'spiceness_scale'),
+    spice: formValueSelector('order')(state, 'spiciness_scale'),
     slices_bread: formValueSelector('order')(state, 'slices_of_bread'),
   })
   
