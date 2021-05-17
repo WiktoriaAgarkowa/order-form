@@ -1,21 +1,25 @@
 import formActionTypes from './form.types';
 
 const INITIAL_STATE = {
-    typeOfDish: ""
+    typeOfDish: "",
+    order: {}
 };
 
 const formReducer = (state=INITIAL_STATE, action) => {
     switch(action.type) {
-        case formActionTypes.ADD_DISH_TYPE:
+        
+        case formActionTypes.ADD_ORDER:
             return {
                 ...state,
-                typeOfDish: action.payload
-            }
+                order: action.payload
+            }    
 
-            default:
+        default:
                 return state
     }
+
 }
+
 
 export default formReducer;
 

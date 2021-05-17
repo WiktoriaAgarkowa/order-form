@@ -1,8 +1,11 @@
 import React from 'react';
-import axios from 'axios';
-import { apiRequest } from './redux/form/form.action';
+import { connect } from 'react-redux';
+import store from './redux/store';
 
 import DishForm from './components/form/form.component';
+import Output from './components/output/output.component';
+import onSubmit from './api/Submit';
+import { addOrder } from './redux/form/form.action';
 
 import './App.scss';
 
@@ -10,37 +13,22 @@ import sandwich from './assets/sandwich.png';
 import soup from './assets/soup.png';
 import pizza from './assets/pizza.png';
 
-const submit = values => {
 
-  values.id = Date.now()
-  values.no_of_slices = parseInt(values.no_of_slices);
-  values.diameter = parseInt(values.diameter);
-  values.spiciness_scale = parseInt(values.spiciness_scale);
-  values.slices_of_bread = parseInt(values.slices_of_bread);
+function App ({addOrder}) {
 
-  const headers = {
-    'Content-Type': 'application/json'
+  const submit = values => {
+    onSubmit(values);
+    console.log(values)
+    store.dispatch(addOrder({values}))
   }
-
-  axios.post(
-    'https://frosty-wood-6558.getsandbox.com:443/dishes',
-    JSON.stringify(values),
-    {'headers': headers})
-    .then((req) => {
-      console.log(req)
-    })
-    .catch((error) => {
-      console.log(error.message);
-    });
-
-}
-
-const App = () => {
 
   return (
     <div className="App">
 
-      <DishForm onSubmit={submit}/>
+      <div className="container">
+        <DishForm onSubmit={submit}/>
+        <Output />
+      </div>
 
       <img className='background-image sandwich' src={sandwich} alt='sandwich'/>
       <img className='background-image soup' src={soup} alt='soup'/>
@@ -49,5 +37,8 @@ const App = () => {
   );
 }
 
+const mapDispatchToProps = dispatch => ({
+  addOrder: (newOrder) => dispatch(addOrder(newOrder)) 
+})
 
-export default App;
+export default connect(null, mapDispatchToProps)(App);

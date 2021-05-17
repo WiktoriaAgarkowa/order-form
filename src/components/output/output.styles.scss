@@ -1,0 +1,19 @@
+.output-container {
+    flex-basis: 50%;
+    background: rgb(0,0,255);
+    background: linear-gradient(90deg, rgba(254,0,197,1) 0%, rgba(0,0,255,1) 100%);
+    border-bottom-right-radius: 50px;
+
+    h1 {
+        color: white;
+        text-align: center;
+        margin: 100px 0 40px 0;
+    }
+
+    span {
+        padding: 15px 0;
+        display: block;
+        text-align: center;
+        color: white;
+    }
+}

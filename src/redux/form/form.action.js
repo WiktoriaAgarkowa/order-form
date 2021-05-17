@@ -4,8 +4,7 @@ export const apiRequest = () => ({
     type: formActionTypes.API_REQUEST
 })
 
-
-export const addDishType = dish => ({
-    type: formActionTypes.ADD_DISH_TYPE,
-    payload: dish
+export const addOrder = newOrder => ({
+    type: formActionTypes.ADD_ORDER,
+    payload: newOrder
 })

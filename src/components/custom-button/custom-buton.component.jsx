@@ -1,13 +1,15 @@
 import React from 'react';
-import './custom-button.styles.scss';
+import {buttonStyle} from './buttonStyle';
 
 const CustomButton = (props) => {
-    console.log(props)
-    const { child, reset } = props;
+
+    const { child } = props;
 
     return (
     <div>
-        <button onClick={reset}>
+        <button
+        style={buttonStyle} 
+        type="submit">
             {child}
         </button>
     </div>
