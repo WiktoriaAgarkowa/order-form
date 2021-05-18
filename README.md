@@ -13,6 +13,7 @@ It's very easy form for sending orders to the restaurant kitchen!
 ### Set up!
 
 Use `npm install` and `npm start` in the root directory to run the application!
+You can find answer from API in console.
 
 #### Structure overview 
 ```
