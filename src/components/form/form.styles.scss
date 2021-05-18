@@ -11,11 +11,20 @@ form {
         color: #343A40;
         font-family: 'Inconsolata', monospace;
     }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+    }
 }
 
-@media only screen and (max-width: 1300px) {
+@media only screen and (max-width: 1200px) {
     form {
       flex-basis: 100%;
       width: 100%;
+
+      .buttons {
+        justify-content: flex-start;
+      }
     }
   }

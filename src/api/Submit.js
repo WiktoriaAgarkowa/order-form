@@ -1,8 +1,7 @@
 import axios from 'axios';
 
-const onSubmit = (values, props) => {
-  console.log(props)
-  
+const onSubmit = (values) => {
+
     values.id = Date.now()
     values.no_of_slices = parseInt(values.no_of_slices);
     values.diameter = parseInt(values.diameter);

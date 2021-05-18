@@ -1,11 +1,10 @@
 .App {
 
-
   .container {
     z-index: 10;
     width: 50%;
     display: flex;
-    position: fixed;
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -33,5 +32,23 @@
   }
 
 
+}
+
+@media only screen and (max-width: 1200px) {
+  .App {
+    .container {
+      width: 70%;
+      flex-wrap: wrap;
+    }
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .App {
+    .container {
+      width: 90%;
+      flex-wrap: wrap;
+    }
+  }
 }
 

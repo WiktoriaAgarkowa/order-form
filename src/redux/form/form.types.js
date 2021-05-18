@@ -1,6 +1,5 @@
 const formActionTypes = {
-    API_REQUEST: 'API_REQUEST',
-    ADD_ORDER: 'ADD_ORDER'
+    API_REQUEST: 'API_REQUEST'
 }
 
 export default formActionTypes;

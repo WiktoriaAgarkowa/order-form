@@ -9,7 +9,11 @@ const CustomInput = ({label, name, type, component, min, step, max, options, add
     <div className='input-container'>
 
         {component !== 'select' ? <Field
-        style={{border: 'none', borderBottom: '1px solid #ccc', padding: '10px 5px', margin: '10px 0', cursor: 'pointer'}} 
+        style={{border: 'none',
+        borderBottom: '1px solid #ccc', 
+        padding: '10px 5px', 
+        margin: '10px 0', 
+        cursor: 'pointer'}} 
         name={name} 
         component='input' 
         type={type} 
@@ -20,7 +24,10 @@ const CustomInput = ({label, name, type, component, min, step, max, options, add
         required /> : null}
 
         {component === 'select' ? <Field 
-        style={{border: 'none', borderBottom: '1px solid #ccc', padding: '10px 5px', cursor: 'pointer'}}
+        style={{border: 'none', 
+        borderBottom: '1px solid #ccc', 
+        padding: '10px 5px', 
+        cursor: 'pointer'}}
         name={name} 
         component='select' 
         >

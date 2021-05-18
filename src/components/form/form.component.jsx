@@ -3,7 +3,7 @@ import { reduxForm, formValueSelector } from 'redux-form';
 import { connect } from 'react-redux';
 
 import CustomInput from '../custom-input/custom-input.component';
-import CustomButton from '../custom-button/custom-buton.component';
+import CustomButton from '../custom-button/custom-button.component';
 import validate from './validate';
 
 import './form.styles.scss';
@@ -34,11 +34,17 @@ let DishForm = props => {
 
               {dishType === 'sandwich' ? <CustomInput name="slices_of_bread" component="input" type="number" min="2" label="Slices of bread"/> : null}
 
-              <CustomButton
-                reset = {reset}
-                type="submit"           
-                child='Submit!'
-              />
+              <div className="buttons">
+                <CustomButton
+                  type="submit"           
+                  child='Submit!'
+                />
+                <CustomButton
+                  action = {reset}
+                  type="button"           
+                  child='Clear form'
+                />
+              </div>
 
     </form>
   }

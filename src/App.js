@@ -1,11 +1,9 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import store from './redux/store';
 
 import DishForm from './components/form/form.component';
 import Output from './components/output/output.component';
 import onSubmit from './api/Submit';
-import { addOrder } from './redux/form/form.action';
+
 
 import './App.scss';
 
@@ -14,19 +12,13 @@ import soup from './assets/soup.png';
 import pizza from './assets/pizza.png';
 
 
-function App ({addOrder}) {
-
-  const submit = values => {
-    onSubmit(values);
-    console.log(values)
-    store.dispatch(addOrder({values}))
-  }
+function App () {
 
   return (
     <div className="App">
 
       <div className="container">
-        <DishForm onSubmit={submit}/>
+        <DishForm onSubmit={onSubmit}/>
         <Output />
       </div>
 
@@ -37,8 +29,4 @@ function App ({addOrder}) {
   );
 }
 
-const mapDispatchToProps = dispatch => ({
-  addOrder: (newOrder) => dispatch(addOrder(newOrder)) 
-})
-
-export default connect(null, mapDispatchToProps)(App);
+export default App;
