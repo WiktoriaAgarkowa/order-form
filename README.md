@@ -21,7 +21,7 @@ You can find answer from API in console.
   ├── api                       # storing api request
   └── assets                    # storing img files
   └── components                # all React Components are here! 
-  └── redux                     # all Redгx files can be found here
+  └── redux                     # all Redux files can be found here
   └── App.js                    # main entry point of the front end app
 └── README.md                   # documentation of the shop project
 ```
